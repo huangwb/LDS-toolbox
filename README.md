@@ -18,7 +18,7 @@ If you make use of this code or the GraphSage algorithm in your work, please cit
 
      @inproceedings{wenbing2016sparse, title={Sparse coding and dictionary learning with linear dynamical systems}, author={Huang, Wenbing and Sun, Fuchun and Cao, Lele and Zhao, Deli and Liu, Huaping and Harandi, Mehrtash}, booktitle={IEEE Conference on Computer Vision and Pattern Recognition (CVPR)}, pages={3938--3947}, year={2016}, organization={IEEE} } 
 
-    @inproceedings{huang2015scalable, title={ Learning Stable Linear Dynamical Systems with the Weighted Least Square Method.}, author={Huang, Wenbing and Cao, Lele and Sun, Fuchun and Zhao, Deli and Liu, Huaping and Yu, Shanshan}, booktitle={Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI)}, pages={1599--1605}, year={2016} }
+     @inproceedings{huang2015scalable, title={ Learning Stable Linear Dynamical Systems with the Weighted Least Square Method.}, author={Huang, Wenbing and Cao, Lele and Sun, Fuchun and Zhao, Deli and Liu, Huaping and Yu, Shanshan}, booktitle={Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI)}, pages={1599--1605}, year={2016} }
 
 ### Requirements
 
