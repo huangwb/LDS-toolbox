@@ -12,7 +12,7 @@ the descriptor of each spatio-temporal sequence.
 
 With this toolbox, you can: 1) learn the optimal LDS system tuple for any given sequence via various methods (see the introduction in [1](https://pdfs.semanticscholar.org/feee/da4ef6adcf49207b3509bd1fc38765d21ea6.pdf)); 2) perform clustering or sparse coding on the space of LDSs  
 
-If you make use of this code or the GraphSage algorithm in your work, please cite the following paper:
+If you make use of this toolbox in your work, please cite the following paper:
 
      @inproceedings{huang2017efficient, title={Efficient Optimization for Linear Dynamical Systems with Applications to Clustering and Sparse Coding.}, author={Huang, Wenbing and Mehrtash, Harandi and Tong, Zhang and Lijie, Fan and Fuchun, Sun and Junzhou, Huang}, booktitle={Advances in Neural Information Processing Systems (NIPS)}, pages={}, year={2017} } 
 
