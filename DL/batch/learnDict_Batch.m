@@ -1,4 +1,4 @@
-function [dict,costs,time] = learnDict_Batch(imdb,getBlockBatch,LDS_opts,SC_opts,DL_opts,STPM)
+function [dict,costs,time] = learnDict_Batch(imdb,getBlockBatch,LDS_opts,SC_opts,DL_opts)
 % performs dictionary learning on LDSs with batch method
 %   Detailed explanation goes here
 %
@@ -22,9 +22,7 @@ teBatch = find(imdb.images.set==3);
 % teBatch = teBatch(tp(1:DL_opts.teBatchSize));
 
 disp('Setting validation batches.');
-teSampleOpts = STPM;
-teSampleOpts.blockPerVid = 1;
-teBlocks = getBlockBatch(imdb,teBatch,teSampleOpts);
+teBlocks = getBlockBatch(imdb,teBatch);
 teLdsBatch = getLdsBatch(teBlocks.data,LDS_opts);
 
 % begin dictionary learning
@@ -35,9 +33,7 @@ switch DL_opts.initial_method
     case 'RAND'
         disp('Initializing dictionary atoms with random video blocks.');
         initBatch = trBatch(randperm(length(trBatch)));
-        initSampleOpts = STPM;
-        initSampleOpts.blockPerVid = ceil(DL_opts.nAtoms/length(initBatch));
-        initBlocks = getBlockBatch(imdb,initBatch,initSampleOpts);
+        initBlocks = getBlockBatch(imdb,initBatch);
         initLds = getLdsBatch(initBlocks.data,LDS_opts);
         rand_idx = randperm(length(initLds));
         dict = initLds(rand_idx(1:DL_opts.nAtoms));
@@ -72,7 +68,7 @@ costs(1) = computeDictCost(teLdsBatch,dict,teAlpha,SC_opts);
 t2 = clock;
 t = etime(t2,t1);
 fprintf('Initial objective cost -->%.3f; time cost -->%.3fs\n',costs(1),t);
-blocks = getBlockBatch(imdb,trBatch,STPM);
+blocks = getBlockBatch(imdb,trBatch);
 ldsBatch = getLdsBatch(blocks.data,LDS_opts);
 
 for iter = 1:DL_opts.nIter

@@ -4,9 +4,8 @@ addpath(genpath('./DL'));
 addpath(genpath('./SC'));
 addpath(genpath('./LDS'));
 addpath(genpath('./dataset'));
-addpath(genpath('./experiments'));
 addpath(genpath('./params'));
-addpath(genpath('./BoS'));
+addpath(genpath('./Clustering'));
 
 
 

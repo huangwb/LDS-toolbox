@@ -15,9 +15,7 @@ end
 
 SC_opts.kernel = LDS_opts.kernel;
 
-STPM.nBins = sum(STPM.pyramid(:,1).* STPM.pyramid(:,2).* STPM.pyramid(:,3));
-
-BoS_opts.kernel = LDS_opts.kernel;
+Clustering_opts.kernel = LDS_opts.kernel;
 
 Classifier_opts.SC_opts = SC_opts;
 

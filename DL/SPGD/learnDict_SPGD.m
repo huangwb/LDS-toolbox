@@ -1,4 +1,4 @@
-function [dict,costs,time] = learnDict_SPGD(imdb,getBlockBatch,LDS_opts,SC_opts,DL_opts,STPM)
+function [dict,costs,time] = learnDict_SPGD(imdb,getBlockBatch,LDS_opts,SC_opts,DL_opts)
 %SPGD performs dictionary learning on LDSs with the Stochastic-Projected-Gradient-Decent method
 %
 % INUTS
@@ -21,9 +21,7 @@ teBatch = find(imdb.images.set==3);
 % teBatch = teBatch(tp(1:DL_opts.teBatchSize));
 
 disp('Setting validation batches.');
-teSampleOpts = STPM;
-teSampleOpts.blockPerVid = 1;
-teBlocks = getBlockBatch(imdb,teBatch,teSampleOpts);
+teBlocks = getBlockBatch(imdb,teBatch);
 teLdsBatch = getLdsBatch(teBlocks.data,LDS_opts);
 
 % begin dictionary learning
@@ -34,9 +32,7 @@ switch DL_opts.initial_method
     case 'RAND'
         disp('Initializing dictionary atoms with random video blocks.');
         initBatch = trBatch(randperm(length(trBatch)));
-        initSampleOpts = STPM;
-        initSampleOpts.blockPerVid = ceil(DL_opts.nAtoms/length(initBatch));
-        initBlocks = getBlockBatch(imdb,initBatch,initSampleOpts);
+        initBlocks = getBlockBatch(imdb,initBatch);
         initLds = getLdsBatch(initBlocks.data,LDS_opts);
 %         dict = initLds(1:DL_opts.nAtoms);
         rand_idx = randperm(length(initLds));
@@ -83,7 +79,7 @@ for iter = 1:DL_opts.nIter
         tj1 = clock;
         vBatch_start = (j-1)*DL_opts.vBatchSize+1;
         vBatch_end = min(vBatch_start + DL_opts.vBatchSize - 1,nVideo);
-        blocks = getBlockBatch(imdb,vBatch(vBatch_start:vBatch_end),STPM);
+        blocks = getBlockBatch(imdb,vBatch(vBatch_start:vBatch_end));
         ldsBatch = getLdsBatch(blocks.data,LDS_opts);
         
         % update codes and dictonary atoms
