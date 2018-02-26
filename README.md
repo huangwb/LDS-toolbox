@@ -10,7 +10,7 @@ and hence conventional learning techniques can not be applied directly. Specific
 the spatio-temporal data. The optimal system parameters (i.e. the system tuple (A,C)) learned from the input are employed as
 the descriptor of each spatio-temporal sequence. 
 
-With this toolbox, you can: 1) learn the optimal LDS system tuple for any given sequence via various methods (see the introduction in [1](https://pdfs.semanticscholar.org/feee/da4ef6adcf49207b3509bd1fc38765d21ea6.pdf)); 2) perform clustering or sparse coding on the space of LDSs.  
+With this toolbox, you can: 1) learn the stable LDS system tuple for any given sequence via various methods; 2) perform clustering or sparse coding on the space of LDSs; 3) conduct classification on spatiotemporal data, e.g. videos and tactile sequences.   
 
 If you make use of this toolbox in your work, please cite the following papers:
 
@@ -40,10 +40,12 @@ If you make use of this toolbox in your work, please cite the following papers:
      }
 
 ### Requirements
-
+This package is almost self-contained, unless you want to recomplie the svm source codes in ./util/liblinear or ./util/libsvm.
 
 ### Running the code
-
-
+1. To learn stable LDS tuples (A,C) from any input sequence, please run demo_dyntex;
+2. For clustering of LDS tuples, please run demo_clustering;
+3. For sparse coding, please run demo_dictionarylearning.
 
 #### Input format
+See the example in ./dataset/dyntex_plus/dyntex++lbp8-6.mat. The data are recorded in the matlab cell format. Different cell represents different sequence. Each sequence is restored by the SxT matrix, where S and T are the spatial and temporal dimensions, respectively.
