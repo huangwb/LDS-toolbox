@@ -48,4 +48,4 @@ This package is almost self-contained, unless you want to recomplie the svm sour
 3. For sparse coding, please run demo_dictionarylearning.
 
 #### Input format
-See the example in ./dataset/dyntex_plus/dyntex++lbp8-6.mat. The data are recorded in the matlab cell format. Different cell represents different sequence. Each sequence is restored by the SxT matrix, where S and T are the spatial and temporal dimensions, respectively.
+See the example in ./dataset/dyntex_plus/dyntex++lbp8-6.mat. The data are recorded in the matlab cell format. Different cells represent different sequences. Each sequence is restored by the SxT matrix, where S and T are the spatial and temporal dimensions, respectively.
